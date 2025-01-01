@@ -1,4 +1,4 @@
-# Create S3 bucket
+i# Create S3 bucket
 Full Workflow Example:
 Create a bucket in Mumbai (ap-south-1):
 
@@ -14,20 +14,19 @@ This document provides instructions for using the AWS CLI to interact with Amazo
   aws configure
 
 
-``bash
-aws s3api create-bucket --bucket bala --region ap-south-1 \
-  --create-bucket-configuration LocationConstraint=ap-south-1
+  ```bash
+  aws s3api create-bucket --bucket bala --region ap-south-1 --create-bucket-configuration LocationConstraint=ap-south-1
 
-``bash
-aws s3api list-buckets --region ap-south-1
+  ```bash
+  aws s3api list-buckets --region ap-south-1
 
-``bash
-aws s3 cp bala.js s3://bala/
+  ```bash
+  aws s3 cp bala.js s3://bala/
 
-``bash
-aws s3 rm s3://bala --recursive
+  ```bash
+  aws s3 rm s3://bala --recursive
 
-``bash
-aws s3api delete-bucket --bucket bala --region ap-south-1
+  ```bash
+  aws s3api delete-bucket --bucket bala --region ap-south-1
 
 
