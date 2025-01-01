@@ -13,24 +13,21 @@ This document provides instructions for using the AWS CLI to interact with Amazo
   ```bash
   aws configure
 
-'''S3 bucket creation
 
+``bash
 aws s3api create-bucket --bucket bala --region ap-south-1 \
   --create-bucket-configuration LocationConstraint=ap-south-1
 
-'''list s3 bucket
+``bash
 aws s3api list-buckets --region ap-south-1
 
-'''Upload a file to the bucket:
-
+``bash
 aws s3 cp bala.js s3://bala/
 
-'''Delete All Objects:
-
+``bash
 aws s3 rm s3://bala --recursive
 
-'''Delete the Bucket:
-
+``bash
 aws s3api delete-bucket --bucket bala --region ap-south-1
 
 
