@@ -55,30 +55,31 @@ This document provides instructions for using the AWS CLI to interact with Amazo
  
 
 ### Ansible playbook to install and start ngnix
-```bash
-##Ansible play book
----
-- name: Install and Start Nginx
-  hosts: all
-  become: yes  # Run tasks with sudo/root privileges
-  tasks:
-    - name: Ensure Nginx is installed
-      apt:
-        name: nginx
-        state: present
-        update_cache: yes
+        ```bash
 
-    - name: Start and enable Nginx service
-      service:
-        name: nginx
-        state: started
-        enabled: yes
+        ##Ansible play book
+	---
+	- name: Install and Start Nginx
+	  hosts: all
+	  become: yes  # Run tasks with sudo/root privileges
+	  tasks:
+	    - name: Ensure Nginx is installed
+	      apt:
+		name: nginx
+		state: present
+		update_cache: yes
 
-    - name: Ensure Nginx is running
-      shell: systemctl status nginx
-      register: nginx_status
-    - name: Printing the nginx status
-      debug:
-        var: nginx_status.stdout_lines
-...
+	    - name: Start and enable Nginx service
+	      service:
+		name: nginx
+		state: started
+		enabled: yes
+
+	    - name: Ensure Nginx is running
+	      shell: systemctl status nginx
+	      register: nginx_status
+	    - name: Printing the nginx status
+	      debug:
+		var: nginx_status.stdout_lines
+	...
 
