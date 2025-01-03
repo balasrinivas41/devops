@@ -30,6 +30,7 @@ This document provides instructions for using the AWS CLI to interact with Amazo
 
 ### create ec2 instance
   ```bash
+  ## create default ec2 instance
   aws ec2 run-instances \
     --image-id ami-0e2c8caa4b6378d8c \
     --instance-type t2.micro \
