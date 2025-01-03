@@ -28,4 +28,19 @@ This document provides instructions for using the AWS CLI to interact with Amazo
   ##delete s3 bucket
   aws s3api delete-bucket --bucket bala --region ap-south-1
 
+### Clone Repository
+
+```bash
+git clone <repository-url>
+
+
+ ###create ec2 instance
+  '''bash
+  aws ec2 run-instances \
+    --image-id ami-0e2c8caa4b6378d8c \
+    --instance-type t2.micro \
+    --key-name docker \
+    --security-groups default \
+    --count 2 \
+    --region us-east-1
 
