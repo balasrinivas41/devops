@@ -55,7 +55,7 @@ This document provides instructions for using the AWS CLI to interact with Amazo
  
 
 ### Ansible playbook to install and start ngnix
-
+```bash
 ---
 - name: Install and Start Nginx
   hosts: all
