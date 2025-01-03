@@ -54,7 +54,7 @@ This document provides instructions for using the AWS CLI to interact with Amazo
  ansible -i nodes all -m "shell" -a "touch anaconda" 
  
 
-##ansible playbook to install and start ngnix
+### Ansible playbook to install and start ngnix
 
 ---
 - name: Install and Start Nginx
