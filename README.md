@@ -29,7 +29,7 @@ This document provides instructions for using the AWS CLI to interact with Amazo
   aws s3api delete-bucket --bucket bala --region ap-south-1
 
 ### create ec2 instance
-'''bash
+  ```bash
   aws ec2 run-instances \
     --image-id ami-0e2c8caa4b6378d8c \
     --instance-type t2.micro \
