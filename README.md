@@ -30,7 +30,7 @@ This document provides instructions for using the AWS CLI to interact with Amazo
 
 ### create ec2 instance
   ```bash
-  ## create default ec2 instance
+  ## create default ec2 instance which are ansible server to configure target server
   aws ec2 run-instances \
     --image-id ami-0e2c8caa4b6378d8c \
     --instance-type t2.micro \
@@ -38,4 +38,46 @@ This document provides instructions for using the AWS CLI to interact with Amazo
     --security-groups default \
     --count 2 \
     --region us-east-1
+ ```bash
+ ## Install ansible in ansible server
+ 
+ sudo apt install ansible
+ ansible --version
+ ## Generate ed25519 keys in two ec2 instances
+ 
+ ssh-keygen
+ ## It generates public key and private key, copy public key to authorized_keys file /home/ubuntu/.ssh/id_ed25519.pub
+ 
+ ~/.ssh/authorized_keys
+ ## Create file anaconda in target instance
+
+ ansible -i nodes all -m "shell" -a "touch anaconda" 
+ 
+
+##ansible playbook to install and start ngnix
+
+---
+- name: Install and Start Nginx
+  hosts: all
+  become: yes  # Run tasks with sudo/root privileges
+  tasks:
+    - name: Ensure Nginx is installed
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Start and enable Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Ensure Nginx is running
+      shell: systemctl status nginx
+      register: nginx_status
+    - name: Printing the nginx status
+      debug:
+        var: nginx_status.stdout_lines
+...
 
